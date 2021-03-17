@@ -1,0 +1,3 @@
+# .env
+node_modules 
+# We dont want to push node_module on git then we define name of packet in gitignore

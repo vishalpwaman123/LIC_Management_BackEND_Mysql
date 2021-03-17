@@ -1,0 +1,92 @@
+create package.js
+
+npm init -y
+
+npm install express
+-------------------------------
+run express project
+
+app.js // main file
+
+node app.js //run project
+
+------------------------
+
+If We want run Server autimatically then install
+
+npm install --save-dev nodemon
+
+run project command : npm start
+
+--------------------------------------
+
+if we want encryption password style then install
+
+npm install bcrypt
+
+------------------------------------------
+
+Create data base in mysql
+
+create database expressjs
+
+-------------------------------------------
+
+create table in database
+
+create table registration ( 
+	id int PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+	firstName varchar(50) NOT NULL, 
+	lastName varchar(50) NOT NULL, 
+	gender varchar(10) NOT NULL, 
+	email varchar(100) NOT NULL, 
+	password varchar (500) NOT NULL, 
+	mobile varchar(10) NOT NULL
+	);
+
+---------------------------------------------------------------
+
+Some Time database mysql connection error occurs then use stackoverflows for solution
+
+-------------------------------------------------------------------
+Json Body
+
+Main url: localhost:4000/api/users
+
+post :
+url : / 
+
+   {
+        "first_name": "Vishal",
+        "last_name": "Waman",
+        "gender": "gender",
+        "email": "vishal@gmail.com",
+        "password" : "123456789",
+        "mobile" : "7758039722"
+    }
+
+get :
+url : /getUsers
+
+get :
+url :/getUsers/:id    //:id Enter Id
+
+put :
+url :/updateUser
+
+   {
+	"id" : 1	// Valid Input
+        "first_name": "Vishal", // Updated first Name 
+        "last_name": "Waman",	// Updated Last Nm
+        "gender": "gender",	// Updated Gender
+        "email": "vishal@gmail.com",	// Updated email
+        "password" : "123456789",	// Updated Password
+        "mobile" : "7758039722"		// Updated mobile number
+    }
+
+
+delete :
+url :/deleteUser/:id  //: id Enter Id 
+
+
+ 
