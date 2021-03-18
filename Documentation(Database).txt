@@ -1,0 +1,93 @@
+Create data base in mysql
+
+create database lic_management
+
+open mysql command line
+
+command : create database lic_management;
+
+-------------------------------------------
+
+create table in database
+
+create table registration ( 
+	customer_id int PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+	email varchar(100) NOT NULL, 
+	customer_Name varchar(50) DEFAULT NULL, 
+	age varchar(10) DEFAULT NULL, 
+	gender varchar(10) DEFAULT NULL, 
+	qualification varchar(100) DEFAULT NULL,
+	address varchar(500) DEFAULT NULL,
+	occupation varchar(100) DEFAULT NULL, 
+	password varchar (500) NOT NULL, 
+	account_Type varchar(15) NOT NULL,
+	created_Date varchar(50) NOT NULL
+	);
+
+JSON :
+ {
+        "email": "Vishal",
+        "customer_Name": "Waman",
+        "age": "gender",
+        "gender": "vishal@gmail.com",
+        "qualification" : "123456789",
+        "address" : "7758039722",
+        "occupation": "vishal@gmail.com",
+        "password" : "123456789",
+        "created_Date" : "7758039722",
+    }
+
+---------------------------------------------------------------
+
+Some Time database mysql connection error occurs then use stackoverflows for solution
+
+-------------------------------------------------------------------
+Json Body
+
+Main url: localhost:4000/api/users
+
+1] Registration :
+
+post :
+url : localhost:4000/api/users/registration
+
+Request Body :
+{
+        "gmail": "Vishal@gmail.com",
+	"password" : "123456789",
+	"account_Type" : "CEO"
+}
+
+2] Login :   
+
+post :
+url : localhost:4000/api/users/login
+
+Request Body :
+{
+        "gmail": "Vishal@gmail.com",
+	"password" : "123456789",
+	"account_Type" : "CEO"
+}
+
+get :
+url :/getUsers/:id    //:id Enter Id
+
+put :
+url :/updateUser
+
+   {
+	"id" : 1	// Valid Input
+        "first_name": "Vishal", // Updated first Name 
+        "last_name": "Waman",	// Updated Last Nm
+        "gender": "gender",	// Updated Gender
+        "email": "vishal@gmail.com",	// Updated email
+        "password" : "123456789",	// Updated Password
+        "mobile" : "7758039722"		// Updated mobile number
+    }
+
+
+delete :
+url :/deleteUser/:id  //: id Enter Id 
+
+
