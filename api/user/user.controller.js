@@ -2,9 +2,10 @@ const {
   registration,
   login,
   getUsersById,
-  // getUsersById,
-  updateUser,
-  deleteUser,
+  forgetPassword,
+  resetPassword,
+  addUserdetail,
+  deleteAllData,
 } = require("./user.service");
 
 const { genSaltSync, hashSync } = require("bcrypt");
@@ -95,73 +96,116 @@ module.exports = {
       });
     });
   },
-  //   getUsers: (req, res) => {
-  //     getUsers((err, results) => {
-  //       if (err) {
-  //         console.log(err);
-  //         return res.status(500).json({
-  //           success: 0,
-  //           message: "Database Connection error",
-  //         });
-  //       }
-  //       return res.status(200).json({
-  //         success: 1,
-  //         data: results,
-  //       });
-  //     });
-  //   },
 
-  //   getUserById: (req, res) => {
-  //     const id = req.params.id;
-  //     getUsersById(id, (err, results) => {
-  //       if (err) {
-  //         console.log(err);
-  //         return res.status(500).json({
-  //           success: 0,
-  //           message: "Database Connection error",
-  //         });
-  //       }
-  //       return res.status(200).json({
-  //         success: 1,
-  //         data: results,
-  //       });
-  //     });
-  //   },
+  forgetPassword: (req, res) => {
+    const body = req.body;
+    // const salt = genSaltSync(10); //
+    // body.password = hashSync(body.password, salt); //Craete Hash encreption password
+    console.log("User Controller flag 1", body.id);
+    forgetPassword(body, (err, results) => {
+      if (err) {
+        console.log("Controller flag 2");
+        console.log(err);
+        return res.status(500).json({
+          success: 0,
+          message: "Database Connection error",
+        });
+      } else if (results == "") {
+        console.log("Controller result null");
+        return res.status(400).json({
+          success: 0,
+          message: "Bad Request",
+        });
+      }
+      console.log("Controller flag 3");
+      return res.status(200).json({
+        success: 1,
+        data: results,
+      });
+    });
+  },
 
-  //   updateUser: (req, res) => {
-  //     const data = req.body;
-  //     const salt = genSaltSync(10); //
-  //     data.password = hashSync(data.password, salt); //Craete Hash encreption password
+  resetPassword: (req, res) => {
+    const body = req.body;
+    // const salt = genSaltSync(10); //
+    // body.password = hashSync(body.password, salt); //Craete Hash encreption password
+    console.log("User Controller flag 1", body.customer_id);
+    resetPassword(body, (err, results) => {
+      if (err) {
+        console.log("Controller flag 2");
+        console.log(err);
+        return res.status(500).json({
+          success: 0,
+          message: "Database Connection error",
+        });
+      } else if (results == "") {
+        console.log("Controller result null");
+        return res.status(400).json({
+          success: 0,
+          message: "Bad Request",
+        });
+      }
+      console.log("Controller flag 3");
+      return res.status(200).json({
+        success: 1,
+        data: results,
+      });
+    });
+  },
 
-  //     updateUser(data, (err, results) => {
-  //       if (err) {
-  //         console.log(err);
-  //         return res.status(500).json({
-  //           success: 0,
-  //           message: "Database Connection error",
-  //         });
-  //       }
-  //       return res.status(200).json({
-  //         success: 1,
-  //         data: results,
-  //       });
-  //     });
-  //   },
+  addUserdetail: (req, res) => {
+    const body = req.body;
+    // const salt = genSaltSync(10); //
+    // body.password = hashSync(body.password, salt); //Craete Hash encreption password
+    console.log("User Controller flag 1", body.customer_id);
+    addUserdetail(body, (err, results) => {
+      if (err) {
+        console.log("Controller flag 2");
+        console.log(err);
+        return res.status(500).json({
+          success: 0,
+          message: "Database Connection error",
+        });
+      } else if (results == "") {
+        console.log("Controller result null");
+        return res.status(400).json({
+          success: 0,
+          message: "Bad Request",
+        });
+      }
+      console.log("Controller flag 3");
+      return res.status(200).json({
+        success: 1,
+        data: results,
+      });
+    });
+  },
 
-  //   deleteUser: (req, res) => {
-  //     const id = req.params.id;
-  //     deleteUser(id, (err, results) => {
-  //       if (err) {
-  //         console.log(err);
-  //         return res.status(500).json({
-  //           success: 0,
-  //           message: "Database Connection error",
-  //         });
-  //       }
-  //       return res.status(200).json({
-  //         success: 1,
-  //         data: results,
-  //       });
-  //     });
-  //   },
+  deleteAllData: (req, res) => {
+    const body = req.body;
+    // const salt = genSaltSync(10); //
+    // body.password = hashSync(body.password, salt); //Craete Hash encreption password
+    console.log("User Controller flag 1");
+    deleteAllData(body, (err, results) => {
+      if (err) {
+        console.log("Controller flag 2");
+        console.log(err);
+        return res.status(500).json({
+          success: 0,
+          message: "Database Connection error",
+        });
+      } else if (results == "") {
+        console.log("Controller result null");
+        return res.status(400).json({
+          success: 0,
+          message: "Bad Request",
+        });
+      }
+      console.log("Controller flag 3");
+      return res.status(200).json({
+        success: 1,
+        data: results,
+      });
+    });
+  },
 };
